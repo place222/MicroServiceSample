@@ -1,0 +1,44 @@
+﻿{
+  "ReRoutes": [
+    {
+      "UpstreamPathTemplate": "/api/values",
+      "DownstreamPathTemplate": "/api/values",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8002
+        }
+      ],
+      "UpstreamHttpMethod": [ "Get" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "Key": "Tom"
+    },
+    {
+      "UpstreamPathTemplate": "/api/test",
+      "DownstreamPathTemplate": "/api/test",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamHttpMethod": [ "Get" ],
+      "Key": "Bom"
+    }
+  ],
+  "Aggregates": [
+    {
+      "ReRouteKeys": [
+        "Tom",
+        "Bom"
+      ],
+      "UpstreamPathTemplate": "/api/agg"
+    }
+  ],
+  "GlobalConfiguration": {}
+}
